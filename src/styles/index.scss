@@ -38,9 +38,10 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-top: $header-height;
 
   figure {
-    height: 100vh;
+    height: calc(100vh - #{$header-height});
 
     &:nth-child(1) {
       background-color: orange;
