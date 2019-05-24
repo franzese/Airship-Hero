@@ -26,13 +26,7 @@ module.exports = {
       title: 'Hero',
       template: Path.resolve(__dirname, '../src/index.html'),
       filename: '../docs/index.html' //relative to root of the application
-    }),
-    new HtmlWebpackPlugin({
-      title: 'ScrollMagic',
-      template: Path.resolve(__dirname, '../src/scrollmagic.html'),
-      filename: '../docs/scrollmagic.html' //relative to root of the application
-    }),
-
+    })
   ],
   resolve: {
     alias: {
