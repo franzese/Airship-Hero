@@ -23,14 +23,24 @@ module.exports = {
       { from: Path.resolve(__dirname, '../public'), to: 'public' }
     ]),
     new HtmlWebpackPlugin({
-      title: 'Default',
+      title: 'Hero',
       template: Path.resolve(__dirname, '../src/index.html'),
       filename: '../docs/index.html' //relative to root of the application
-    })
+    }),
+    new HtmlWebpackPlugin({
+      title: 'ScrollMagic',
+      template: Path.resolve(__dirname, '../src/scrollmagic.html'),
+      filename: '../docs/scrollmagic.html' //relative to root of the application
+    }),
+
   ],
   resolve: {
     alias: {
-      '~': Path.resolve(__dirname, '../src')
+      '~': Path.resolve(__dirname, '../src'),
+      'Modules': Path.resolve(__dirname, '../node_modules'),
+      'ScrollMagic': Path.resolve(__dirname, '../node_modules/scrollmagic/scrollmagic/minified'),
+      'TimelineMax': Path.resolve(__dirname, '../node_modules/gsap/src/minified'),
+      'TweenLite':  Path.resolve(__dirname, '../node_modules/gsap/src/minified/TweenLite.min.js'),
     }
   },
   module: {
