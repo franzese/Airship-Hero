@@ -16,23 +16,10 @@
 </head>
 
 <body>
-	<h1>Start</h1>
+	<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h1>
 	<div id="example-wrapper" class="hero-wrapper">
 		<div class="scrollContent">
 			<section class="demo" id="section-wipes">
-				<style type="text/css">
-					#pinContainer {
-						width: 100%;
-						height: 100%;
-						overflow: hidden;
-					}
-
-					.panel {
-						height: 100%;
-						width: 100%;
-						position: absolute;
-					}
-				</style>
 				<div id="pinContainer">
 					<section class="panel blue">
 						<b>ONE</b>
@@ -48,49 +35,49 @@
 
 					</section>
 				</div>
-				<script>
-					{ // wait for document ready
-						// init
-						var controller = new ScrollMagic.Controller();
-
-						// define movement of panels
-						var wipeAnimation = new TimelineMax()
-							.fromTo("section.panel.turqoise", 1, {
-								x: "-100%"
-							}, {
-								x: "0%",
-								ease: Linear.easeNone
-							}) // in from left
-							.fromTo("section.panel.green", 1, {
-								x: "100%"
-							}, {
-								x: "0%",
-								ease: Linear.easeNone
-							}) // in from right
-							.fromTo("section.panel.bordeaux", 1, {
-								y: "-100%"
-							}, {
-								y: "0%",
-								ease: Linear.easeNone
-							}); // in from top
-
-						// create scene to pin and link animation
-						var scene = new ScrollMagic.Scene({
-							triggerElement: "#pinContainer",
-							triggerHook: "onLeave",
-							duration: "300%"
-						});
-						// debugger;
-						scene.setPin("#pinContainer");
-						scene.setTween(wipeAnimation);
-						scene.addIndicators(); // add indicators (requires plugin)
-						scene.addTo(controller);
-					}
-				</script>
-				<h1>End</h1>
+				<h1>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
 			</section>
 		</div>
 	</div>
+	<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		// init
+		var controller = new ScrollMagic.Controller();
+
+		// define movement of panels
+		var wipeAnimation = new TimelineMax()
+		.fromTo("section.panel.turqoise", 1, {
+			x: "-100%"
+		}, {
+			x: "0%",
+			ease: Linear.easeNone
+		}) // in from left
+		.fromTo("section.panel.green", 1, {
+			x: "100%"
+		}, {
+			x: "0%",
+			ease: Linear.easeNone
+		}) // in from right
+		.fromTo("section.panel.bordeaux", 1, {
+			y: "-100%"
+		}, {
+			y: "0%",
+			ease: Linear.easeNone
+		}); // in from top
+
+		// create scene to pin and link animation
+		var scene = new ScrollMagic.Scene({
+			triggerElement: "#pinContainer",
+			triggerHook: "onLeave",
+			duration: "300%"
+		});
+		// debugger;
+		scene.setPin("#pinContainer");
+		scene.setTween(wipeAnimation);
+		scene.addIndicators(); // add indicators (requires plugin)
+		scene.addTo(controller);
+	});
+	</script>
 </body>
 
 </html>
