@@ -49,9 +49,6 @@ html[xmlns] .clearfix {
   height: 1%;
 }
 /****************************************************************************/
-/*
-Containers
-*/
 h1 {
   font-weight: 700;
   font-size: 4rem;
@@ -64,59 +61,49 @@ h1 {
 .hero-wrapper {
   height: 100%;
 
-  .scrollContent {
+  .demo {
+    font-size: 0;
+    text-align: center;
     height: 100%;
+    width: 100%;
+    background-image: none;
 
-    .demo {
-      font-size: 0;
-      text-align: center;
-      height: 100%;
+    &.fullheight {
+      min-height: 100%;
+    }
+
+    #pinContainer {
       width: 100%;
-      background-image: none;
+      height: 100%;
+      overflow: hidden;
 
-      &.fullheight {
-        min-height: 100%;
-      }
-
-      * {
-        font-size: 13px;
-      }
-
-      #pinContainer {
-        width: 100%;
+      .panel {
         height: 100%;
-        overflow: hidden;
+        width: 100%;
+        position: absolute;
+        font-size: 2rem;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAQAAADmB58qAAAAEElEQVR4AWNkYMCH/kvhQQCr0QsPghEiZgAAAABJRU5ErkJggg==");
 
-        .panel {
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAQAAADmB58qAAAAEElEQVR4AWNkYMCH/kvhQQCr0QsPghEiZgAAAABJRU5ErkJggg==");
+        &.green {
+          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
+        }
 
-          &.green {
-            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
-          }
+        &.turqoise {
+          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
+        }
 
-          &.turqoise {
-            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
-          }
-
-          > b {
-            font-size: 15px;
-            color: white;
-            position: relative;
-            display: block;
-            height: 0;
-            overflow: visible;
-            top: 50%;
-          }
+        > b {
+          color: white;
+          position: relative;
+          display: block;
+          height: 0;
+          overflow: visible;
+          top: 50%;
         }
       }
     }
-
   }
 }
-
 /*
 colors
 */

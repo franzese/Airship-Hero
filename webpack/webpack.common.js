@@ -25,7 +25,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Hero',
       template: Path.resolve(__dirname, '../src/index.html'),
-      filename: '../docs/index.html' //relative to root of the application
+      filename: '../docs/index.html', //relative to root of the application
+      inject: 'head',
     })
   ],
   resolve: {

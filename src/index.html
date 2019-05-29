@@ -17,9 +17,8 @@
 
 <body>
 	<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h1>
-	<div id="example-wrapper" class="hero-wrapper">
-		<div class="scrollContent">
-			<section class="demo" id="section-wipes">
+	<div class="hero-wrapper">
+			<section class="demo">
 				<div id="pinContainer">
 					<section class="panel blue">
 						<b>ONE</b>
@@ -32,50 +31,51 @@
 					</section>
 					<section class="panel bordeaux">
 						<b>FOUR</b>
-
 					</section>
 				</div>
 				<h1>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
 			</section>
-		</div>
 	</div>
 	<script>
-	document.addEventListener('DOMContentLoaded', function(){
+	document.addEventListener('DOMContentLoaded', () => {
 		// init
-		var controller = new ScrollMagic.Controller();
+		const controller = new ScrollMagic.Controller();
+		const panels = document.querySelectorAll('#pinContainer .panel');
+		if (panels.length) {
+			// define movement of panels
+			const wipeAnimation = new TimelineMax()
+			.fromTo(panels[1], 1, {
+				x: "-100%"
+			}, {
+				x: "0%",
+			}) // in from left
+			.fromTo(panels[2], 1, {
+				x: "100%"
+			}, {
+				x: "0%",
+			}) // in from right
+			.fromTo(panels[3], 1, {
+				y: "-100%"
+			}, {
+				y: "0%",
+			}); // in from top
 
-		// define movement of panels
-		var wipeAnimation = new TimelineMax()
-		.fromTo("section.panel.turqoise", 1, {
-			x: "-100%"
-		}, {
-			x: "0%",
-			ease: Linear.easeNone
-		}) // in from left
-		.fromTo("section.panel.green", 1, {
-			x: "100%"
-		}, {
-			x: "0%",
-			ease: Linear.easeNone
-		}) // in from right
-		.fromTo("section.panel.bordeaux", 1, {
-			y: "-100%"
-		}, {
-			y: "0%",
-			ease: Linear.easeNone
-		}); // in from top
+			// create scene to pin and link animation
+			var scene = new ScrollMagic.Scene({
+				triggerElement: "#pinContainer",
+				triggerHook: "onLeave",
+				duration: "300%"
+			});
+			// debugger;
+			scene.setPin("#pinContainer");
+			scene.setTween(wipeAnimation);
+			scene.addIndicators(); // add indicators (requires plugin)
+			scene.addTo(controller);
 
-		// create scene to pin and link animation
-		var scene = new ScrollMagic.Scene({
-			triggerElement: "#pinContainer",
-			triggerHook: "onLeave",
-			duration: "300%"
-		});
-		// debugger;
-		scene.setPin("#pinContainer");
-		scene.setTween(wipeAnimation);
-		scene.addIndicators(); // add indicators (requires plugin)
-		scene.addTo(controller);
+		} else {
+			throw new Error('Airship Hero panels missing');
+		}
+
 	});
 	</script>
 </body>
