@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=500" />
 	<meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
-	<meta name="author" content="Jan Paepke (www.janpaepke.de)" />
 	<title>Section Wipes (manual) - Examples - ScrollMagic</title>
-
-	<script type="text/javascript" src="../../node_modules/gsap/src/uncompressed/TweenMax.js"></script>
-	<script type="text/javascript" src="../../node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-	<script type="text/javascript" src="../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
-	<script type="text/javascript" src="../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
 </head>
-
 <body>
-	<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h1>
 	<div class="hero-wrapper">
+		<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h1>
 			<section class="demo">
 				<div id="pinContainer">
 					<section class="panel blue">
@@ -36,48 +28,5 @@
 				<h1>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
 			</section>
 	</div>
-	<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		// init
-		const controller = new ScrollMagic.Controller();
-		const panels = document.querySelectorAll('#pinContainer .panel');
-		if (panels.length) {
-			// define movement of panels
-			const wipeAnimation = new TimelineMax()
-			.fromTo(panels[1], 1, {
-				x: "-100%"
-			}, {
-				x: "0%",
-			}) // in from left
-			.fromTo(panels[2], 1, {
-				x: "100%"
-			}, {
-				x: "0%",
-			}) // in from right
-			.fromTo(panels[3], 1, {
-				y: "-100%"
-			}, {
-				y: "0%",
-			}); // in from top
-
-			// create scene to pin and link animation
-			var scene = new ScrollMagic.Scene({
-				triggerElement: "#pinContainer",
-				triggerHook: "onLeave",
-				duration: "300%"
-			});
-			// debugger;
-			scene.setPin("#pinContainer");
-			scene.setTween(wipeAnimation);
-			scene.addIndicators(); // add indicators (requires plugin)
-			scene.addTo(controller);
-
-		} else {
-			throw new Error('Airship Hero panels missing');
-		}
-
-	});
-	</script>
 </body>
-
 </html>

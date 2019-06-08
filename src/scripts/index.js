@@ -1,41 +1,35 @@
-import ScrollMagic from 'ScrollMagic/ScrollMagic.min.js';
-import TimelineMax from 'TimelineMax/TimelineMax.min.js';
-import '../styles/index.scss';
+import '../styles/index.scss'; // I'm the only fucking thing working lol
+import ScrollMagic from 'scrollmagic/scrollmagic/uncompressed/ScrollMagic';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
+import TweenMax from 'gsap/src/uncompressed/TweenMax';
+import TimelineMax from 'gsap/src/uncompressed/TimelineMax';
 
-// window.AirHero = () => {
-//   // init
-//   var controller = new ScrollMagic.Controller();
-//
-//   // define movement of panels
-//   var wipeAnimation = new TimelineMax()
-//   .fromTo("section.panel.turqoise", 1, {
-//     x: "-100%"
-//   }, {
-//     x: "0%",
-//     ease: Linear.easeNone
-//   }) // in from left
-//   .fromTo("section.panel.green", 1, {
-//     x: "100%"
-//   }, {
-//     x: "0%",
-//     ease: Linear.easeNone
-//   }) // in from right
-//   .fromTo("section.panel.bordeaux", 1, {
-//     y: "-100%"
-//   }, {
-//     y: "0%",
-//     ease: Linear.easeNone
-//   }); // in from top
-//
-//   // create scene to pin and link animation
-//   var scene = new ScrollMagic.Scene({
-//     triggerElement: "#pinContainer",
-//     triggerHook: "onLeave",
-//     duration: "300%"
-//   });
-//   // debugger;
-//   scene.setPin("#pinContainer");
-//   scene.setTween(wipeAnimation);
-//   scene.addIndicators(); // add indicators (requires plugin)
-//   scene.addTo(controller);
-// };
+document.addEventListener('DOMContentLoaded', () => {
+  // init
+  const controller = new ScrollMagic.Controller();
+  const panels = document.querySelectorAll('#pinContainer .panel');
+  if (panels.length) {
+    // define movement of panels
+    const wipeAnimation = new TimelineMax()
+    .fromTo(panels[1], 1, { x: "-100%" }, { x: "0%" }) // in from left
+    .fromTo(panels[2], 1, { x: "100%" }, { x: "0%" }) // in from right
+    .fromTo(panels[3], 1, { y: "-100%" }, { y: "0%" }); // in from top
+
+    // create scene to pin and link animation
+    var scene = new ScrollMagic.Scene({
+    	triggerElement: "#pinContainer",
+    	triggerHook: "onLeave",
+    	duration: "300%"
+    });
+    // debugger;
+    scene.setPin("#pinContainer");
+    scene.setTween(wipeAnimation);
+    scene.addIndicators(); // add indicators (requires plugin)
+    scene.addTo(controller);
+
+  } else {
+    debugger;
+  	throw new Error('Airship Hero panels missing');
+  }
+});
