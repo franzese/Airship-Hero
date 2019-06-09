@@ -8,22 +8,24 @@ import TimelineMax from 'gsap/src/uncompressed/TimelineMax';
 document.addEventListener('DOMContentLoaded', () => {
   // init
   const controller = new ScrollMagic.Controller();
-  const panels = document.querySelectorAll('#pinContainer .panel');
+  const rootElement = document.querySelector('.hero-tween');
+  const panels = rootElement.querySelectorAll('.panel');
+
   if (panels.length) {
     // define movement of panels
     const wipeAnimation = new TimelineMax()
     .fromTo(panels[1], 1, { x: "-100%" }, { x: "0%" }) // in from left
-    .fromTo(panels[2], 1, { x: "100%" }, { x: "0%" }) // in from right
-    .fromTo(panels[3], 1, { y: "-100%" }, { y: "0%" }); // in from top
+    .fromTo(panels[2], 1, { x: "100%" }, { x: "0%" }); // in from right
+    // .fromTo(panels[3], 1, { y: "-100%" }, { y: "0%" }); // in from top
 
     // create scene to pin and link animation
     var scene = new ScrollMagic.Scene({
-    	triggerElement: "#pinContainer",
+    	triggerElement: rootElement,
     	triggerHook: "onLeave",
     	duration: "300%"
     });
     // debugger;
-    scene.setPin("#pinContainer");
+    scene.setPin(rootElement);
     scene.setTween(wipeAnimation);
     scene.addIndicators(); // add indicators (requires plugin)
     scene.addTo(controller);

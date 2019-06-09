@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-$gauge-image-path: '../images/';
-$gauge-color-light: #fff;
-$gauge-color-dark: #000;
-$gauge-base-font-size: 10px;
-$header-height: 60px;
+$air-header-height: 0;
+$air-hero-image-path: '../air-hero-images';
 
 header {
   background-color: tomato;
   position: fixed;
-  height: $header-height;
+  height: $air-header-height;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -19,6 +16,7 @@ html {
   height: 100%;
 }
 
+*,
 body {
   font-family: "Roboto Condensed", Arial, sans-serif;
   font-size: 13px;
@@ -26,6 +24,16 @@ body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 4rem;
+  display: block;
+  background-color: tomato;
+  margin: 0;
+  padding: 2rem;
 }
 /****************************************************************************/
 .clearfix:after {
@@ -49,57 +57,45 @@ html[xmlns] .clearfix {
   height: 1%;
 }
 /****************************************************************************/
-h1 {
-  font-weight: 700;
-  font-size: 4rem;
-  display: block;
-  background-color: tomato;
-  margin: 0;
-  padding: 2rem;
-}
-
 .hero-wrapper {
-  height: 100%;
+  .full-height {
+    height: 100vh; // calc(100vh - #{$air-header-height});
+  }
 
-  .demo {
+  .hero-tween {
     font-size: 0;
     text-align: center;
-    height: 100%;
     width: 100%;
     background-image: none;
 
-    &.fullheight {
-      min-height: 100%;
-    }
-
-    #pinContainer {
+    .panel {
+      @extend .full-height;
       width: 100%;
-      height: 100vh;
-      overflow: hidden;
+      position: absolute;
+      font-size: 2rem;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAQAAADmB58qAAAAEElEQVR4AWNkYMCH/kvhQQCr0QsPghEiZgAAAABJRU5ErkJggg==");
 
-      .panel {
-        height: 100vh;
-        width: 100%;
-        position: absolute;
-        font-size: 2rem;
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAQAAADmB58qAAAAEElEQVR4AWNkYMCH/kvhQQCr0QsPghEiZgAAAABJRU5ErkJggg==");
+      &.hero-blueprint,
+      &.hero-photo {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
 
-        &.green {
-          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
-        }
+      &.hero-photo {
+        background-image: url("#{$air-hero-image-path}/hero-1.jpg");
+      }
 
-        &.turqoise {
-          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
-        }
+      &.hero-blueprint {
+        background-image: url("#{$air-hero-image-path}/hero-2.svg");
+      }
 
-        > b {
-          color: white;
-          position: relative;
-          display: block;
-          height: 0;
-          overflow: visible;
-          top: 50%;
-        }
+      &.green {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
+      }
+
+      &.turqoise {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAQAAAB0m0auAAAAD0lEQVR4AWNiwAr+S6FDAGJbCeRuXz8RAAAAAElFTkSuQmCC");
       }
     }
   }
