@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (panels.length) {
     // define movement of panels
     const wipeAnimation = new TimelineMax()
-    .fromTo(panels[1], 1, { x: "-100%" }, { x: "0%" }) // in from left
-    .fromTo(panels[2], 1, { x: "100%" }, { x: "0%" }); // in from right
-    // .fromTo(panels[3], 1, { y: "-100%" }, { y: "0%" }); // in from top
+    .fromTo(panels[1], 1, { opacity: 0 }, { opacity: 1 }) // in from left
+    .fromTo(panels[2], 1, { opacity: 0 }, { opacity: 1 }); // in from right
 
     // create scene to pin and link animation
     var scene = new ScrollMagic.Scene({
     	triggerElement: rootElement,
       offset: -60, // how far above the rootElement the START trigger is
-      triggerHook: "onLeave",
-    	duration: "300%"
+      triggerHook: 0,
+    	duration: "200%",
+      reverse: true,
     });
     // debugger;
     scene.setPin(rootElement);

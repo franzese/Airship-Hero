@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+header {
+  background-color: tomato;
+  position: fixed;
+  height: 60px;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex; }
+
+body,
+html {
+  height: 100%; }
+
+* {
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-size: 13px;
+  -webkit-tap-highlight-color: transparent;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  font-weight: 700;
+  font-size: 4rem;
+  display: inline-block;
+  padding: 2rem; }
+
+/****************************************************************************/
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; }
+
+.clearfix {
+  display: inline-block; }
+
+html[xmlns] .clearfix {
+  display: block; }
+
+* html .clearfix {
+  height: 1%; }
+
+/****************************************************************************/
+body {
+  padding-top: 60px; }
+
+figure {
+  height: 4rem;
+  width: 5rem;
+  position: fixed;
+  left: 0;
+  top: 43vh;
+  z-index: 99; }
+
+.full-height, .hero-tween .panel {
+  min-height: calc(100vh - 60px); }
+
+.hero-tween {
+  position: relative;
+  font-size: 0;
+  text-align: center;
+  width: 100%;
+  background-image: none; }
+  .hero-tween .panel {
+    width: 100%;
+    position: absolute;
+    font-size: 1rem;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAQAAADmB58qAAAAEElEQVR4AWNkYMCH/kvhQQCr0QsPghEiZgAAAABJRU5ErkJggg=="); }
+    .hero-tween .panel.hero-blueprint, .hero-tween .panel.hero-photo {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center; }
+    .hero-tween .panel.hero-photo {
+      background-image: url(src/air-hero-images/hero-1.jpg); }
+    .hero-tween .panel.hero-blueprint {
+      background-image: url(src/air-hero-images/hero-2.svg); }
+
+/*
+colors
+*/
+.red {
+  background-color: tomato; }
+
+.blue {
+  background-color: #3883d8; }
+
+.turqoise {
+  background-color: #38ced7; }
+
+.green, figure {
+  background-color: lightgreen; }
+
+.orange {
+  background-color: peachpuff; }
+
+
+/*# sourceMappingURL=bundle.css.map*/
