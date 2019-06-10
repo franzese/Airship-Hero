@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // create scene to pin and link animation
     var scene = new ScrollMagic.Scene({
     	triggerElement: rootElement,
-    	triggerHook: "onLeave",
+      offset: -60, // how far above the rootElement the START trigger is
+      triggerHook: "onLeave",
     	duration: "300%"
     });
     // debugger;
