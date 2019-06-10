@@ -27,6 +27,9 @@ h1 {
   display: inline-block;
   padding: 2rem; }
 
+.hidden {
+  display: none; }
+
 /****************************************************************************/
 .clearfix:after {
   content: ".";
@@ -49,23 +52,29 @@ html[xmlns] .clearfix {
 body {
   padding-top: 60px; }
 
-figure {
-  height: 4rem;
-  width: 5rem;
-  position: fixed;
-  left: 0;
-  top: 43vh;
-  z-index: 99; }
-
-.full-height, .hero-tween .panel {
-  min-height: calc(100vh - 60px); }
-
 .hero-tween {
   position: relative;
   font-size: 0;
   text-align: center;
   width: 100%;
   background-image: none; }
+  .hero-tween .full-height, .hero-tween .panel {
+    min-height: calc(100vh - 60px); }
+  .hero-tween .top-panel {
+    position: absolute;
+    z-index: 3;
+    color: #ffffff;
+    width: 40%;
+    margin-left: 60%; }
+    .hero-tween .top-panel h1 {
+      display: block;
+      padding: 0 4rem;
+      margin: 0 4rem;
+      text-align: left;
+      font-style: italic;
+      font-weight: 700; }
+      .hero-tween .top-panel h1.highlight {
+        background-color: #3e3769; }
   .hero-tween .panel {
     width: 100%;
     position: absolute;
@@ -76,7 +85,8 @@ figure {
       background-size: cover;
       background-position: center; }
     .hero-tween .panel.hero-photo {
-      background-image: url(src/air-hero-images/hero-1.jpg); }
+      background-image: url(src/air-hero-images/hero-1.jpg);
+      color: #ffffff; }
     .hero-tween .panel.hero-blueprint {
       background-image: url(src/air-hero-images/hero-2.svg); }
 
@@ -92,7 +102,7 @@ colors
 .turqoise {
   background-color: #38ced7; }
 
-.green, figure {
+.green {
   background-color: lightgreen; }
 
 .orange {
